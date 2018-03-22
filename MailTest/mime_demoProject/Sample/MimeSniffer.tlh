@@ -1,0 +1,696 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (2a342059).
+//
+// MimeSniffer.tlh
+//
+// C++ source equivalent of Win32 type library .\MimeSniffer.dll
+// compiler-generated file created 07/31/03 at 15:26:40 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("d83f672e-b48f-4f92-9dbe-523c5079ec2d"))
+/* dual interface */ IMimeDecoder;
+struct __declspec(uuid("9da0e669-0034-4770-9d3f-c3ecc9a0124f"))
+/* dispinterface */ _IMimeDecoderEvents;
+struct __declspec(uuid("af0fef99-54d9-401f-8395-eecdf967ac99"))
+/* dual interface */ IMailAddress;
+struct __declspec(uuid("2ed8a834-7283-4bc8-9c42-a389a917255d"))
+/* dual interface */ ICollection;
+struct __declspec(uuid("444d55c3-c0d6-47dc-ae6f-8c43eaf34e8e"))
+/* dual interface */ IClientSocket;
+struct __declspec(uuid("827beb32-fded-4aa7-b5b9-955ab40267e4"))
+/* dual interface */ IMimeBody;
+struct /* coclass */ MimeDecoder;
+struct /* coclass */ MailAddress;
+struct /* coclass */ Collection;
+struct /* coclass */ ClientSocket;
+struct /* coclass */ MimeBody;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IMimeDecoder, __uuidof(IMimeDecoder));
+_COM_SMARTPTR_TYPEDEF(_IMimeDecoderEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(IMailAddress, __uuidof(IMailAddress));
+_COM_SMARTPTR_TYPEDEF(ICollection, __uuidof(ICollection));
+_COM_SMARTPTR_TYPEDEF(IClientSocket, __uuidof(IClientSocket));
+_COM_SMARTPTR_TYPEDEF(IMimeBody, __uuidof(IMimeBody));
+
+//
+// Type library items
+//
+
+enum MajorMimeTypes
+{
+    Multipart = 0,
+    Text = 1,
+    Image = 2,
+    Application = 3,
+    Audio = 4,
+    Video = 5,
+    Message = 6
+};
+
+enum MultipartTypes
+{
+    Mixed = 0,
+    Parallel = 1,
+    Digest = 2,
+    Alternative = 3
+};
+
+enum TextTypes
+{
+    Plain = 0,
+    Html = 1
+};
+
+enum ImageTypes
+{
+    Gif = 0,
+    Jpg = 1
+};
+
+enum ApplicationTypes
+{
+    OctetStream = 0,
+    Postscript = 1
+};
+
+enum AudioTypes
+{
+    Basic = 0
+};
+
+enum VideoTypes
+{
+    Mpeg = 0
+};
+
+enum MessageTypes
+{
+    Rfc822 = 0,
+    Partial = 1,
+    ExternalBody = 2
+};
+
+enum EncoderTypes
+{
+    SevenBit = 0,
+    QuotedPrintable = 1,
+    Base64 = 2,
+    EightBit = 3,
+    Binary = 4
+};
+
+struct __declspec(uuid("d83f672e-b48f-4f92-9dbe-523c5079ec2d"))
+IMimeDecoder : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetReturnPath,put=PutReturnPath))
+    _variant_t ReturnPath;
+    __declspec(property(get=GetMajorMimeVersion,put=PutMajorMimeVersion))
+    long MajorMimeVersion;
+    __declspec(property(get=GetMinorMimeVersion,put=PutMinorMimeVersion))
+    long MinorMimeVersion;
+    __declspec(property(get=GetReplyTo,put=PutReplyTo))
+    _variant_t ReplyTo;
+    __declspec(property(get=GetFrom,put=PutFrom))
+    _variant_t From;
+    __declspec(property(get=GetSender,put=PutSender))
+    _variant_t Sender;
+    __declspec(property(get=GetResentReplyTo,put=PutResentReplyTo))
+    _variant_t ResentReplyTo;
+    __declspec(property(get=GetResentFrom,put=PutResentFrom))
+    _variant_t ResentFrom;
+    __declspec(property(get=GetResentSender,put=PutResentSender))
+    _variant_t ResentSender;
+    __declspec(property(get=GetDate,put=PutDate))
+    _variant_t Date;
+    __declspec(property(get=GetResentDate,put=PutResentDate))
+    _variant_t ResentDate;
+    __declspec(property(get=GetTo,put=PutTo))
+    _variant_t To;
+    __declspec(property(get=GetCC,put=PutCC))
+    _variant_t CC;
+    __declspec(property(get=GetBCC,put=PutBCC))
+    _variant_t BCC;
+    __declspec(property(get=GetSubject,put=PutSubject))
+    _variant_t Subject;
+    __declspec(property(get=GetMessageID,put=PutMessageID))
+    _variant_t MessageID;
+    __declspec(property(get=GetReceivedFieldAsRaw,put=PutReceivedFieldAsRaw))
+    VARIANT_BOOL ReceivedFieldAsRaw;
+    __declspec(property(get=GetReturnReceiptTo,put=PutReturnReceiptTo))
+    _variant_t ReturnReceiptTo;
+    __declspec(property(get=GetCanUpdateName))
+    VARIANT_BOOL CanUpdateName;
+    __declspec(property(put=PutUpdateName))
+    _bstr_t UpdateName;
+    __declspec(property(get=GetSubjectRaw,put=PutSubjectRaw))
+    _variant_t SubjectRaw;
+    __declspec(property(get=GetBody,put=PutBody))
+    _variant_t Body;
+    __declspec(property(get=GetInterpretEmbeddedMails,put=PutInterpretEmbeddedMails))
+    VARIANT_BOOL InterpretEmbeddedMails;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL LoadFromFile (
+        _bstr_t Path );
+    VARIANT_BOOL SaveToFile (
+        _bstr_t Path );
+    _variant_t GetReturnPath ( );
+    void PutReturnPath (
+        const _variant_t & pVal );
+    long GetMajorMimeVersion ( );
+    void PutMajorMimeVersion (
+        long pVal );
+    long GetMinorMimeVersion ( );
+    void PutMinorMimeVersion (
+        long pVal );
+    _variant_t GetReplyTo ( );
+    void PutReplyTo (
+        const _variant_t & pVal );
+    _variant_t GetFrom ( );
+    void PutFrom (
+        const _variant_t & pVal );
+    _variant_t GetSender ( );
+    void PutSender (
+        const _variant_t & pVal );
+    _variant_t GetResentReplyTo ( );
+    void PutResentReplyTo (
+        const _variant_t & pVal );
+    _variant_t GetResentFrom ( );
+    void PutResentFrom (
+        const _variant_t & pVal );
+    _variant_t GetResentSender ( );
+    void PutResentSender (
+        const _variant_t & pVal );
+    _variant_t GetDate ( );
+    void PutDate (
+        const _variant_t & pVal );
+    _variant_t GetResentDate ( );
+    void PutResentDate (
+        const _variant_t & pVal );
+    _variant_t GetTo ( );
+    void PutTo (
+        const _variant_t & pVal );
+    _variant_t GetCC ( );
+    void PutCC (
+        const _variant_t & pVal );
+    _variant_t GetBCC ( );
+    void PutBCC (
+        const _variant_t & pVal );
+    _variant_t GetSubject ( );
+    void PutSubject (
+        const _variant_t & pVal );
+    _variant_t GetMessageID ( );
+    void PutMessageID (
+        const _variant_t & pVal );
+    VARIANT_BOOL GetReceivedFieldAsRaw ( );
+    void PutReceivedFieldAsRaw (
+        VARIANT_BOOL pVal );
+    _variant_t GetReturnReceiptTo ( );
+    void PutReturnReceiptTo (
+        const _variant_t & pVal );
+    VARIANT_BOOL Load (
+        IDispatch * StreamObject );
+    VARIANT_BOOL Save (
+        IDispatch * StreamObject );
+    _variant_t GetSubjectRaw ( );
+    void PutSubjectRaw (
+        const _variant_t & pVal );
+    _variant_t GetBody ( );
+    void PutBody (
+        const _variant_t & pVal );
+    VARIANT_BOOL GetCanUpdateName ( );
+    void PutUpdateName (
+        _bstr_t _arg1 );
+    VARIANT_BOOL GetInterpretEmbeddedMails ( );
+    void PutInterpretEmbeddedMails (
+        VARIANT_BOOL pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_LoadFromFile (
+        BSTR Path,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall raw_SaveToFile (
+        BSTR Path,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall get_ReturnPath (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ReturnPath (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_MajorMimeVersion (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_MajorMimeVersion (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_MinorMimeVersion (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_MinorMimeVersion (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_ReplyTo (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ReplyTo (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_From (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_From (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Sender (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Sender (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ResentReplyTo (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ResentReplyTo (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ResentFrom (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ResentFrom (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ResentSender (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ResentSender (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Date (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Date (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ResentDate (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ResentDate (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_To (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_To (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_CC (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_CC (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_BCC (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_BCC (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Subject (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Subject (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_MessageID (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_MessageID (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ReceivedFieldAsRaw (
+        VARIANT_BOOL * pVal ) = 0;
+    virtual HRESULT __stdcall put_ReceivedFieldAsRaw (
+        VARIANT_BOOL pVal ) = 0;
+    virtual HRESULT __stdcall get_ReturnReceiptTo (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ReturnReceiptTo (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall raw_Load (
+        IDispatch * StreamObject,
+        VARIANT_BOOL * pbvarRestult ) = 0;
+    virtual HRESULT __stdcall raw_Save (
+        IDispatch * StreamObject,
+        VARIANT_BOOL * pbvarRestult ) = 0;
+    virtual HRESULT __stdcall get_SubjectRaw (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_SubjectRaw (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Body (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Body (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_CanUpdateName (
+        VARIANT_BOOL * pVal ) = 0;
+    virtual HRESULT __stdcall put_UpdateName (
+        BSTR _arg1 ) = 0;
+    virtual HRESULT __stdcall get_InterpretEmbeddedMails (
+        VARIANT_BOOL * pVal ) = 0;
+    virtual HRESULT __stdcall put_InterpretEmbeddedMails (
+        VARIANT_BOOL pVal ) = 0;
+};
+
+struct __declspec(uuid("9da0e669-0034-4770-9d3f-c3ecc9a0124f"))
+_IMimeDecoderEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT OnError (
+        _bstr_t strHint,
+        long Line );
+};
+
+struct __declspec(uuid("af0fef99-54d9-401f-8395-eecdf967ac99"))
+IMailAddress : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAddress,put=PutAddress))
+    _bstr_t Address;
+    __declspec(property(get=GetNameRaw,put=PutNameRaw))
+    _bstr_t NameRaw;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetRouteAddress))
+    _bstr_t RouteAddress;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetAddress ( );
+    void PutAddress (
+        _bstr_t pVal );
+    _bstr_t GetNameRaw ( );
+    void PutNameRaw (
+        _bstr_t pVal );
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t pVal );
+    _bstr_t GetRouteAddress ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Address (
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_Address (
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_NameRaw (
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_NameRaw (
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_RouteAddress (
+        BSTR * pVal ) = 0;
+};
+
+struct __declspec(uuid("2ed8a834-7283-4bc8-9c42-a389a917255d"))
+ICollection : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _variant_t Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetItemByID))
+    _variant_t ItemByID[];
+    __declspec(property(get=Get_NewEnum))
+    IUnknownPtr _NewEnum;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IUnknownPtr Get_NewEnum ( );
+    _variant_t GetItem (
+        long Index );
+    long GetCount ( );
+    HRESULT Add (
+        const _variant_t & Item );
+    HRESULT Remove (
+        long Index );
+    HRESULT Clear ( );
+    HRESULT Modify (
+        long Index,
+        const _variant_t & Item );
+    _variant_t GetItemID (
+        long Index,
+        VARIANT * pID );
+    _variant_t GetItemByID (
+        long ID );
+    HRESULT RemoveByID (
+        long ID );
+    HRESULT ModifyByID (
+        long ID,
+        const _variant_t & Item );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get__NewEnum (
+        IUnknown * * ppUnknown ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        long Index,
+        VARIANT * pVariant ) = 0;
+    virtual HRESULT __stdcall get_Count (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        VARIANT Item ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        long Index ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_Modify (
+        long Index,
+        VARIANT Item ) = 0;
+    virtual HRESULT __stdcall get_ItemID (
+        long Index,
+        VARIANT * pID,
+        VARIANT * pVariant ) = 0;
+    virtual HRESULT __stdcall get_ItemByID (
+        long ID,
+        VARIANT * pVariant ) = 0;
+    virtual HRESULT __stdcall raw_RemoveByID (
+        long ID ) = 0;
+    virtual HRESULT __stdcall raw_ModifyByID (
+        long ID,
+        VARIANT Item ) = 0;
+};
+
+struct __declspec(uuid("444d55c3-c0d6-47dc-ae6f-8c43eaf34e8e"))
+IClientSocket : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL ConnectSMTP (
+        _bstr_t strServer,
+        long nPort );
+    VARIANT_BOOL DisconnectSMTP ( );
+    VARIANT_BOOL PrepareSMTP (
+        IDispatch * pDecoder );
+    VARIANT_BOOL GetResultSMTP ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_ConnectSMTP (
+        BSTR strServer,
+        long nPort,
+        VARIANT_BOOL * pRet ) = 0;
+    virtual HRESULT __stdcall raw_DisconnectSMTP (
+        VARIANT_BOOL * pRet ) = 0;
+    virtual HRESULT __stdcall raw_PrepareSMTP (
+        IDispatch * pDecoder,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall raw_GetResultSMTP (
+        VARIANT_BOOL * pbvarResult ) = 0;
+};
+
+struct __declspec(uuid("827beb32-fded-4aa7-b5b9-955ab40267e4"))
+IMimeBody : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _variant_t Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEmbeddedMessage))
+    IDispatchPtr EmbeddedMessage;
+    __declspec(property(get=GetMajorContentType,put=PutMajorContentType))
+    _variant_t MajorContentType;
+    __declspec(property(get=GetMinorContentType,put=PutMinorContentType))
+    _variant_t MinorContentType;
+    __declspec(property(get=GetExtField,put=PutExtField))
+    _variant_t ExtField[];
+    __declspec(property(get=GetEncoding,put=PutEncoding))
+    _variant_t Encoding;
+    __declspec(property(get=GetDescription,put=PutDescription))
+    _variant_t Description;
+    __declspec(property(get=GetContentID,put=PutContentID))
+    _variant_t ContentID;
+    __declspec(property(get=GetFileName,put=PutFileName))
+    _bstr_t FileName;
+    __declspec(property(get=GetValue,put=PutValue))
+    _bstr_t Value;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _variant_t GetItem (
+        long Index );
+    long GetCount ( );
+    IDispatchPtr AddNew ( );
+    HRESULT Remove (
+        long Index );
+    HRESULT Clear ( );
+    _variant_t GetMajorContentType ( );
+    void PutMajorContentType (
+        const _variant_t & pVal );
+    _variant_t GetMinorContentType ( );
+    void PutMinorContentType (
+        const _variant_t & pVal );
+    _variant_t GetExtField (
+        _bstr_t strName );
+    void PutExtField (
+        _bstr_t strName,
+        const _variant_t & pVal );
+    _variant_t GetEncoding ( );
+    void PutEncoding (
+        const _variant_t & pVal );
+    _variant_t GetDescription ( );
+    void PutDescription (
+        const _variant_t & pVal );
+    _variant_t GetContentID ( );
+    void PutContentID (
+        const _variant_t & pVal );
+    VARIANT_BOOL ExportAsFile (
+        _bstr_t Path );
+    VARIANT_BOOL ImportFromFile (
+        _bstr_t Path,
+        VARIANT_BOOL StreamByReference );
+    VARIANT_BOOL Export (
+        IUnknown * pStream );
+    VARIANT_BOOL Import (
+        IUnknown * pStream,
+        VARIANT_BOOL StreamByReference );
+    _bstr_t GetFileName ( );
+    void PutFileName (
+        _bstr_t pVal );
+    _bstr_t GetValue ( );
+    void PutValue (
+        _bstr_t pVal );
+    IDispatchPtr GetEmbeddedMessage ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Item (
+        long Index,
+        VARIANT * pVariant ) = 0;
+    virtual HRESULT __stdcall get_Count (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall raw_AddNew (
+        IDispatch * * ppResult ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        long Index ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall get_MajorContentType (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_MajorContentType (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_MinorContentType (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_MinorContentType (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ExtField (
+        BSTR strName,
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ExtField (
+        BSTR strName,
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Encoding (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Encoding (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_Description (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_Description (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall get_ContentID (
+        VARIANT * pVal ) = 0;
+    virtual HRESULT __stdcall put_ContentID (
+        VARIANT pVal ) = 0;
+    virtual HRESULT __stdcall raw_ExportAsFile (
+        BSTR Path,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall raw_ImportFromFile (
+        BSTR Path,
+        VARIANT_BOOL StreamByReference,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall raw_Export (
+        IUnknown * pStream,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall raw_Import (
+        IUnknown * pStream,
+        VARIANT_BOOL StreamByReference,
+        VARIANT_BOOL * pbvarResult ) = 0;
+    virtual HRESULT __stdcall get_FileName (
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_FileName (
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_Value (
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_Value (
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_EmbeddedMessage (
+        IDispatch * * pVal ) = 0;
+};
+
+struct __declspec(uuid("dae27546-4f73-41ae-a802-f5c4d7cd57ba"))
+MimeDecoder;
+    // [ default ] interface IMimeDecoder
+    // [ default, source ] dispinterface _IMimeDecoderEvents
+
+struct __declspec(uuid("5f00447b-8a10-46ae-bda3-f95ee73769b8"))
+MailAddress;
+    // [ default ] interface IMailAddress
+
+struct __declspec(uuid("22c47b61-cf66-43e0-8a83-e0a0422680c4"))
+Collection;
+    // [ default ] interface ICollection
+
+struct __declspec(uuid("1d8f02c8-4d92-4b65-8de8-877ff4ebfa14"))
+ClientSocket;
+    // [ default ] interface IClientSocket
+
+struct __declspec(uuid("95b35a0b-f6e6-4705-a938-321e7de86472"))
+MimeBody;
+    // [ default ] interface IMimeBody
+
+//
+// Wrapper method implementations
+//
+
+#include "MimeSniffer.tli"
+
+#pragma pack(pop)

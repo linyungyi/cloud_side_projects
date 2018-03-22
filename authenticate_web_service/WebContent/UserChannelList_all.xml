@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List>
+  <Channel_category name="新聞" id="4">
+    <List>
+    <Channel>
+      <channel_id>010001</channel_id>
+      <channel_name>010001</channel_name>
+      <channel_type>Channel</channel_type>
+      <channel_price>30</channel_price>
+      <smallpic version="1"><![CDATA[http://www.cht.com.tw/Images/TopIcon/Site_emome.png]]></smallpic>
+      <bigpic version="1"><![CDATA[http://l.yimg.com/o/xp/cna/20100203/17/3748735103.jpg]]></bigpic>
+      <desc>010001</desc>
+      <entity_version>1</entity_version>
+      <channel_template>1</channel_template>
+      <channel_subscriptiontype>basic</channel_subscriptiontype>
+      <trialdays>30</trialdays>
+      <channel_url ><![CDATA[http://10.1.3.199/ApplicationServer/ApplicationServlet?Task=ChannelDetail&ChannelId=010001]]></channel_url>
+      <channel_category>新聞</channel_category>
+       <subscribed>false</subscribed>
+    </Channel>
+</List>
+   
+  </Channel_category>
+</List>

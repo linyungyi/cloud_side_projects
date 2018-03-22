@@ -1,0 +1,1972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" xmlns:intf="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://management.server_common.flashcast.macromedia.com" xmlns:tns2="http://lang.java" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Copyright (c) 2004-2006  Adobe Macromedia Software LLC and its licensors. All rights reserved. Macromedia, the Macromedia logo, Flash and FlashCast are  either registered  trademarks or trademarks of  Adobe Systems Incorporated  in the United States and/or other countries.  All other trademarks are the property of their respective owners.
+
+This software is protected by copyright law and international treaties. Unauthorized use, reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.  -->
+    
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+
+  <wsdl:types>
+
+    <schema targetNamespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="ContentDeveloperManagement">
+
+        <sequence>
+
+
+          <element name="deviceAndClientTypes" nillable="true" type="soapenc:string"/>
+
+        </sequence>
+
+      </complexType>
+
+    </schema>
+
+	 
+    <schema targetNamespace="http://management.server_common.flashcast.macromedia.com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="ManagementException">
+
+
+        <sequence>
+
+          <element name="cause" nillable="true" type="xsd:anyType"/>
+
+          <element name="content" nillable="true" type="soapenc:string"/>
+
+          <element name="message" nillable="true" type="soapenc:string"/>
+
+        </sequence>
+
+      </complexType>
+
+    </schema>
+
+  </wsdl:types>
+
+
+    <wsdl:message name="getInstanceRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="modifyLDSPQueriesAndRegetResponse">
+
+
+        <wsdl:part name="modifyLDSPQueriesAndRegetReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeDataSourceRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getPrefResponse">
+
+
+        <wsdl:part name="getPrefReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFCAResponse1">
+
+
+        <wsdl:part name="removeFCAReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateFeedAppResponse">
+
+
+        <wsdl:part name="updateFeedAppReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removePrefRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createFeedAppRequest">
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="version" type="soapenc:string"/>
+
+
+        <wsdl:part name="longDesc" type="soapenc:string"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createLDSPDataSourceRequest">
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="prefSensitive" type="xsd:boolean"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateLDSPDataSourceRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="prefSensitive" type="xsd:boolean"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDeviceAndClientTypesRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateFeedAppRequest">
+
+
+        <wsdl:part name="feedAppGuid" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="version" type="soapenc:string"/>
+
+
+        <wsdl:part name="longDesc" type="soapenc:string"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="modifyLDSPQueriesAndRegetRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="shouldRemove" type="xsd:boolean"/>
+
+
+        <wsdl:part name="typeRemove" type="soapenc:string"/>
+
+
+        <wsdl:part name="nameRemove" type="soapenc:string"/>
+
+
+        <wsdl:part name="shouldAdd" type="xsd:boolean"/>
+
+
+        <wsdl:part name="type" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="path" type="soapenc:string"/>
+
+
+        <wsdl:part name="idParam" type="soapenc:string"/>
+
+
+        <wsdl:part name="maxIds" type="xsd:int"/>
+
+
+        <wsdl:part name="maxLen" type="xsd:int"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createStaticDataSourceRequest">
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFCARequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getInstanceResponse">
+
+
+        <wsdl:part name="getInstanceReturn" type="impl:ContentDeveloperManagement"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createFeedAppResponse">
+
+
+        <wsdl:part name="createFeedAppReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="ManagementException">
+
+
+        <wsdl:part name="fault" type="tns1:ManagementException"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFeedAppRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createLDSPDataSourceResponse">
+
+
+        <wsdl:part name="createLDSPDataSourceReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createLDSPQueryRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="type" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="path" type="soapenc:string"/>
+
+
+        <wsdl:part name="idParam" type="soapenc:string"/>
+
+
+        <wsdl:part name="maxIds" type="xsd:int"/>
+
+
+        <wsdl:part name="maxLen" type="xsd:int"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDataSourceResponse">
+
+
+        <wsdl:part name="getDataSourceReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createLDSPQueryResponse">
+
+
+        <wsdl:part name="createLDSPQueryReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFeedAppResponse">
+
+
+        <wsdl:part name="removeFeedAppReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getFeedAppRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createRSSDataSourceResponse">
+
+
+        <wsdl:part name="createRSSDataSourceReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateLDSPDataSourceResponse">
+
+
+        <wsdl:part name="updateLDSPDataSourceReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createRSSDataSourceRequest">
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="url" type="soapenc:string"/>
+
+
+        <wsdl:part name="numItems" type="xsd:int"/>
+
+
+        <wsdl:part name="timeToLive" type="xsd:int"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeLDSPQueryRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="type" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateRSSDataSourceResponse">
+
+
+        <wsdl:part name="updateRSSDataSourceReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="listContentResponse">
+
+
+        <wsdl:part name="listContentReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateStaticDataSourceResponse">
+
+
+        <wsdl:part name="updateStaticDataSourceReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDataSourceLogResponse">
+
+
+        <wsdl:part name="getDataSourceLogReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateRSSDataSourceRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="url" type="soapenc:string"/>
+
+
+        <wsdl:part name="numItems" type="xsd:int"/>
+
+
+        <wsdl:part name="timeToLive" type="xsd:int"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getPrefRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="updateStaticDataSourceRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="name" type="soapenc:string"/>
+
+
+        <wsdl:part name="desc" type="soapenc:string"/>
+
+
+        <wsdl:part name="pollInterval" type="xsd:int"/>
+
+
+        <wsdl:part name="feedGuid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFCARequest1">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+
+        <wsdl:part name="itemId" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createStaticDataSourceResponse">
+
+
+        <wsdl:part name="createStaticDataSourceReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDataSourceLogRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDeviceAndClientTypesResponse">
+
+
+        <wsdl:part name="getDeviceAndClientTypesReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getFeedAppResponse">
+
+
+        <wsdl:part name="getFeedAppReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeFCAResponse">
+
+
+        <wsdl:part name="removeFCAReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removePrefResponse">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="faultResponse">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getDataSourceRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getFeedStateResponse">
+
+
+        <wsdl:part name="getFeedStateReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="listContentRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeLDSPQueryResponse">
+
+
+        <wsdl:part name="removeLDSPQueryReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getFeedStateRequest">
+
+
+        <wsdl:part name="guid" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="faultRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeDataSourceResponse">
+
+
+        <wsdl:part name="removeDataSourceReturn" type="xsd:boolean"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:portType name="ContentDeveloperManagement">
+
+
+        <wsdl:operation name="getInstance">
+
+
+            <wsdl:input message="impl:getInstanceRequest" name="getInstanceRequest"/>
+
+
+            <wsdl:output message="impl:getInstanceResponse" name="getInstanceResponse"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDataSource" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:getDataSourceRequest" name="getDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:getDataSourceResponse" name="getDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeDataSource" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:removeDataSourceRequest" name="removeDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:removeDataSourceResponse" name="removeDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="fault">
+
+
+            <wsdl:input message="impl:faultRequest" name="faultRequest"/>
+
+
+            <wsdl:output message="impl:faultResponse" name="faultResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFeedApp" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:removeFeedAppRequest" name="removeFeedAppRequest"/>
+
+
+            <wsdl:output message="impl:removeFeedAppResponse" name="removeFeedAppResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getFeedApp" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:getFeedAppRequest" name="getFeedAppRequest"/>
+
+
+            <wsdl:output message="impl:getFeedAppResponse" name="getFeedAppResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="listContent">
+
+
+            <wsdl:input message="impl:listContentRequest" name="listContentRequest"/>
+
+
+            <wsdl:output message="impl:listContentResponse" name="listContentResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createRSSDataSource" parameterOrder="name desc pollInterval url numItems timeToLive feedGuid">
+
+
+            <wsdl:input message="impl:createRSSDataSourceRequest" name="createRSSDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:createRSSDataSourceResponse" name="createRSSDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateRSSDataSource" parameterOrder="guid name desc pollInterval url numItems timeToLive feedGuid">
+
+
+            <wsdl:input message="impl:updateRSSDataSourceRequest" name="updateRSSDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:updateRSSDataSourceResponse" name="updateRSSDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createLDSPDataSource" parameterOrder="name desc pollInterval prefSensitive feedGuid">
+
+
+            <wsdl:input message="impl:createLDSPDataSourceRequest" name="createLDSPDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:createLDSPDataSourceResponse" name="createLDSPDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateLDSPDataSource" parameterOrder="guid name desc pollInterval prefSensitive feedGuid">
+
+
+            <wsdl:input message="impl:updateLDSPDataSourceRequest" name="updateLDSPDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:updateLDSPDataSourceResponse" name="updateLDSPDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="modifyLDSPQueriesAndReget" parameterOrder="guid shouldRemove typeRemove nameRemove shouldAdd type name path idParam maxIds maxLen">
+
+
+            <wsdl:input message="impl:modifyLDSPQueriesAndRegetRequest" name="modifyLDSPQueriesAndRegetRequest"/>
+
+
+            <wsdl:output message="impl:modifyLDSPQueriesAndRegetResponse" name="modifyLDSPQueriesAndRegetResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createLDSPQuery" parameterOrder="guid type name path idParam maxIds maxLen">
+
+
+            <wsdl:input message="impl:createLDSPQueryRequest" name="createLDSPQueryRequest"/>
+
+
+            <wsdl:output message="impl:createLDSPQueryResponse" name="createLDSPQueryResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeLDSPQuery" parameterOrder="guid type name">
+
+
+            <wsdl:input message="impl:removeLDSPQueryRequest" name="removeLDSPQueryRequest"/>
+
+
+            <wsdl:output message="impl:removeLDSPQueryResponse" name="removeLDSPQueryResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createStaticDataSource" parameterOrder="name desc pollInterval feedGuid">
+
+
+            <wsdl:input message="impl:createStaticDataSourceRequest" name="createStaticDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:createStaticDataSourceResponse" name="createStaticDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateStaticDataSource" parameterOrder="guid name desc pollInterval feedGuid">
+
+
+            <wsdl:input message="impl:updateStaticDataSourceRequest" name="updateStaticDataSourceRequest"/>
+
+
+            <wsdl:output message="impl:updateStaticDataSourceResponse" name="updateStaticDataSourceResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getFeedState" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:getFeedStateRequest" name="getFeedStateRequest"/>
+
+
+            <wsdl:output message="impl:getFeedStateResponse" name="getFeedStateResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDataSourceLog" parameterOrder="guid">
+
+
+            <wsdl:input message="impl:getDataSourceLogRequest" name="getDataSourceLogRequest"/>
+
+
+            <wsdl:output message="impl:getDataSourceLogResponse" name="getDataSourceLogResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createFeedApp" parameterOrder="name desc version longDesc feedGuid">
+
+
+            <wsdl:input message="impl:createFeedAppRequest" name="createFeedAppRequest"/>
+
+
+            <wsdl:output message="impl:createFeedAppResponse" name="createFeedAppResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateFeedApp" parameterOrder="feedAppGuid name desc version longDesc feedGuid">
+
+
+            <wsdl:input message="impl:updateFeedAppRequest" name="updateFeedAppRequest"/>
+
+
+            <wsdl:output message="impl:updateFeedAppResponse" name="updateFeedAppResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFCA" parameterOrder="guid clientTypeName deviceTypeName">
+
+
+            <wsdl:input message="impl:removeFCARequest" name="removeFCARequest"/>
+
+
+            <wsdl:output message="impl:removeFCAResponse" name="removeFCAResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFCA" parameterOrder="guid clientTypeName deviceTypeName itemId">
+
+
+            <wsdl:input message="impl:removeFCARequest1" name="removeFCARequest1"/>
+
+
+            <wsdl:output message="impl:removeFCAResponse1" name="removeFCAResponse1"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removePref" parameterOrder="guid clientTypeName deviceTypeName">
+
+
+            <wsdl:input message="impl:removePrefRequest" name="removePrefRequest"/>
+
+
+            <wsdl:output message="impl:removePrefResponse" name="removePrefResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getPref" parameterOrder="guid clientTypeName deviceTypeName">
+
+
+            <wsdl:input message="impl:getPrefRequest" name="getPrefRequest"/>
+
+
+            <wsdl:output message="impl:getPrefResponse" name="getPrefResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDeviceAndClientTypes">
+
+
+            <wsdl:input message="impl:getDeviceAndClientTypesRequest" name="getDeviceAndClientTypesRequest"/>
+
+
+            <wsdl:output message="impl:getDeviceAndClientTypesResponse" name="getDeviceAndClientTypesResponse"/>
+
+
+        </wsdl:operation>
+
+
+    </wsdl:portType>
+
+
+    <wsdl:binding name="ContentDeveloperManagementSoapBinding" type="impl:ContentDeveloperManagement">
+
+
+        <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+        <wsdl:operation name="getInstance">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getInstanceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getInstanceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removeDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="fault">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="faultRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="faultResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFeedApp">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removeFeedAppRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeFeedAppResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getFeedApp">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getFeedAppRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getFeedAppResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="listContent">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="listContentRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="listContentResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createRSSDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="createRSSDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createRSSDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateRSSDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="updateRSSDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="updateRSSDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createLDSPDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="createLDSPDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createLDSPDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateLDSPDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="updateLDSPDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="updateLDSPDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="modifyLDSPQueriesAndReget">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="modifyLDSPQueriesAndRegetRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="modifyLDSPQueriesAndRegetResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createLDSPQuery">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="createLDSPQueryRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createLDSPQueryResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeLDSPQuery">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removeLDSPQueryRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeLDSPQueryResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createStaticDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="createStaticDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createStaticDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateStaticDataSource">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="updateStaticDataSourceRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="updateStaticDataSourceResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getFeedState">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getFeedStateRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getFeedStateResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDataSourceLog">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getDataSourceLogRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getDataSourceLogResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createFeedApp">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="createFeedAppRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createFeedAppResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="updateFeedApp">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="updateFeedAppRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="updateFeedAppResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFCA">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removeFCARequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeFCAResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeFCA">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removeFCARequest1">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeFCAResponse1">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removePref">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removePrefRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removePrefResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getPref">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getPrefRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getPrefResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getDeviceAndClientTypes">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="getDeviceAndClientTypesRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="getDeviceAndClientTypesResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ContentDeveloperManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+        </wsdl:operation>
+
+
+    </wsdl:binding>
+
+
+    <wsdl:service name="ContentDeveloperManagementService">
+
+
+        <wsdl:port binding="impl:ContentDeveloperManagementSoapBinding" name="ContentDeveloperManagement">
+
+
+            <wsdlsoap:address location="http://localhost:9001/feedserver/admin/services/ContentDeveloperManagement"/>
+
+
+        </wsdl:port>
+
+
+    </wsdl:service>
+
+
+</wsdl:definitions>

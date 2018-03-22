@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.cht.dto.ws.UserDTO">
+		<map-to xml="user"/>
+		
+		<field name="Name" type="java.lang.String">
+			<bind-xml name="name" node="attribute"/>
+		</field>
+		<field name="GroupModify" type="long">
+			<bind-xml name="groupmod" node="attribute"/>
+		</field>
+		<field name="Creation" type="long">
+			<bind-xml name="creation" node="attribute"/>
+		</field>
+		<field name="UserGroups" type="com.cht.dto.ws.UserGroupDTO" collection="arraylist">
+			<bind-xml name="usergroup" />
+		</field>
+		<field name="Devices" type="com.cht.dto.ws.DeviceDTO" collection="arraylist">
+			<bind-xml name="device" />
+		</field>
+		
+	</class>
+	
+	<class name="com.cht.dto.ws.UserGroupDTO">
+		<field name="Id" type="java.lang.String">
+			<bind-xml name="id" node="attribute"/>
+		</field>
+	</class>
+
+	<class name="com.cht.dto.ws.DeviceDTO">
+		<field name="Id" type="java.lang.String">
+			<bind-xml name="id" node="attribute"/>
+		</field>
+	</class>
+</mapping>

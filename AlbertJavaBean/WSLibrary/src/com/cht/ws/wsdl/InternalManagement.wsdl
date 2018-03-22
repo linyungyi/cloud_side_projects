@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" xmlns:intf="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://management.server_common.flashcast.macromedia.com" xmlns:tns2="http://lang.java" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Copyright (c) 2004-2006  Adobe Macromedia Software LLC and its licensors. All rights reserved. Macromedia, the Macromedia logo, Flash and FlashCast are  either registered  trademarks or trademarks of  Adobe Systems Incorporated  in the United States and/or other countries.  All other trademarks are the property of their respective owners.
+
+This software is protected by copyright law and international treaties. Unauthorized use, reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.  -->
+
+
+<!--WSDL created by RFF
+Built on 6/6/6 -->
+
+  <wsdl:types>
+
+    <schema targetNamespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="ManagementException">
+
+
+        <sequence>
+
+          <element name="cause" nillable="true" type="xsd:anyType"/>
+
+          <element name="content" nillable="true" type="soapenc:string"/>
+
+          <element name="message" nillable="true" type="soapenc:string"/>
+
+        </sequence>
+
+      </complexType>
+
+
+    </schema>
+
+  </wsdl:types>
+
+
+   <!-- Returns a list (comma separated) of the active channels associated 
+        with the user making the request. This will not list
+        channels that have previously been deleted.
+     -->
+
+    <wsdl:message name="listChannelsRequest">
+
+    </wsdl:message>
+
+
+    <wsdl:message name="listChannelsResponse">
+
+        <wsdl:part name="listChannelsReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+  
+
+   <!-- Creates or updates a channel with the specified name.  Assumes that
+        an attachment with the custom Rincon .zip file is attached. 
+     -->
+
+    <wsdl:message name="createChannelRequest">
+
+        <wsdl:part name="channelName" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+    <wsdl:message name="createChannelResponse">
+
+        <wsdl:part name="createChannelReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+   <!-- Creates or updates a channel with the specified name.  Assumes that
+        an attachment with the standard 'Database XML' .zip file is attached. 
+        Client and device types are used to create a subscription to the newly
+        created channel.
+     -->
+
+    <wsdl:message name="importChannelRequest">
+
+        <wsdl:part name="channelName" type="soapenc:string"/>
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+    </wsdl:message>
+
+  
+
+   <!-- Deletes the channel, and all of it components, of the specified name.  Note
+        that the FeedApp component of a channel may not immediately be deallocated. 
+     -->
+
+    <wsdl:message name="deleteChannelRequest">
+
+        <wsdl:part name="channelName" type="soapenc:string"/>
+
+   </wsdl:message>
+
+
+    <wsdl:message name="deleteChannelResponse">
+
+        <wsdl:part name="deleteChannelReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+  
+
+   <!-- Requests that the data source associated with the named channel be
+        immediately polled (note that the newly requested data may not be 
+        available for an undetermined amount of time). 
+     -->
+
+    <wsdl:message name="pollChannelRequest">
+
+        <wsdl:part name="channelName" type="soapenc:string"/>
+
+   </wsdl:message>
+
+
+    <wsdl:message name="pollChannelResponse">
+
+        <wsdl:part name="pollChannelReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+  
+
+   <!-- Adds a user and device (both specified by the deviceId), with the 
+        device of the client type and device type specified.  The user is
+        associated with the device, and both are associated with the account
+        that is making this call (the account is owned by a FlashCast
+        administrator-note that the user name/device id should _not_ be the same as
+        the administrator name). 
+     -->
+
+    <wsdl:message name="addDeviceRequest">
+
+        <wsdl:part name="deviceId" type="soapenc:string"/>
+
+        <wsdl:part name="clientTypeName" type="soapenc:string"/>
+
+        <wsdl:part name="deviceTypeName" type="soapenc:string"/>
+
+   </wsdl:message>
+
+
+    <wsdl:message name="addDeviceResponse">
+
+        <wsdl:part name="addDeviceReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+   
+   <!-- List the devices which have been associated with the account making this call.
+        The devices will be returned in a comma separated list. 
+     -->
+
+    <wsdl:message name="listDevicesRequest">
+
+    </wsdl:message>
+
+
+    <wsdl:message name="listDevicesResponse">
+
+        <wsdl:part name="listDevicesReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+   
+   <!-- Remove the specified device from the account making this call.
+        This will also remove the user of the same name (so that this user
+        cannot possibly be associated with another device of the same name,
+        but for a different account).
+     -->
+
+    <wsdl:message name="removeDeviceRequest">
+
+        <wsdl:part name="deviceId" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+    <wsdl:message name="removeDeviceResponse">
+
+        <wsdl:part name="removeDeviceReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+   
+   <!-- Return the debug log information for the data source associated with the 
+        specified channel.  This log will have the CR/LF specifications of the 
+        server system on which it was created.
+
+        CAUTION: This data could get large.
+     -->
+
+    <wsdl:message name="retrieveDataSourceLogRequest">
+
+        <wsdl:part name="channelName" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+    <wsdl:message name="retrieveDataSourceLogResponse">
+
+        <wsdl:part name="retrieveDataSourceLogReturn" type="soapenc:string"/>
+
+    </wsdl:message>
+
+
+   
+   <!-- Most FlashCast management routines return this as the standard exception.
+     -->
+
+    <wsdl:message name="managementException">
+
+        <wsdl:part name="fault" type="impl:ManagementException"/>
+
+    </wsdl:message>
+
+
+
+    <wsdl:portType name="AuthoringWebInterfaces">
+
+
+        <wsdl:operation name="listChannels">
+
+            <wsdl:input message="impl:listChannelsRequest" name="listChannelsRequest"/>
+
+            <wsdl:output message="impl:listChannelsResponse" name="listChannelsResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="createChannel">
+
+            <wsdl:input message="impl:createChannelRequest" name="createChannelRequest"/>
+
+            <wsdl:output message="impl:createChannelResponse" name="createChannelResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="importChannel">
+
+            <wsdl:input message="impl:importChannelRequest" name="importChannelRequest"/>
+
+            <wsdl:output message="impl:createChannelResponse" name="createChannelResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="deleteChannel">
+
+            <wsdl:input message="impl:deleteChannelRequest" name="deleteChannelRequest"/>
+
+            <wsdl:output message="impl:deleteChannelResponse" name="deleteChannelResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="pollChannel">
+
+            <wsdl:input message="impl:pollChannelRequest" name="pollChannelRequest"/>
+
+            <wsdl:output message="impl:pollChannelResponse" name="pollChannelResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="addDevice">
+
+            <wsdl:input message="impl:addDeviceRequest" name="addDeviceRequest"/>
+
+            <wsdl:output message="impl:addDeviceResponse" name="addDeviceResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="listDevices">
+
+            <wsdl:input message="impl:listDevicesRequest" name="listDevicesRequest"/>
+
+            <wsdl:output message="impl:listDevicesResponse" name="listDevicesResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="removeDevice">
+
+            <wsdl:input message="impl:removeDeviceRequest" name="removeDeviceRequest"/>
+
+            <wsdl:output message="impl:removeDeviceResponse" name="removeDeviceResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="retrieveDataSourceLog">
+
+            <wsdl:input message="impl:retrieveDataSourceLogRequest" name="retrieveDataSourceLogRequest"/>
+
+            <wsdl:output message="impl:retrieveDataSourceLogResponse" name="retrieveDataSourceLogResponse"/>
+
+            <wsdl:fault message="impl:managementException" name="managementException"/>
+
+        </wsdl:operation>
+
+
+    </wsdl:portType>
+
+
+    <wsdl:binding name="AuthoringWebInterfacesSoapBinding" type="impl:AuthoringWebInterfaces">
+
+
+        <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+        <wsdl:operation name="listChannels">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="listChannelsRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="listChannelsResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+         
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="createChannel">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="createChannelRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+                <mime:multipartRelated>
+
+                     <mime:part>
+
+                          <wsdlsoap:body namespace="http://example.com/mimetypes" use="literal"/>
+
+                     </mime:part>
+
+                </mime:multipartRelated>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createChannelResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+      
+        <wsdl:operation name="importChannel">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="importChannelRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+                <mime:multipartRelated>
+
+                     <mime:part>
+
+                          <wsdlsoap:body namespace="http://example.com/mimetypes" use="literal"/>
+
+                     </mime:part>
+
+                </mime:multipartRelated>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="createChannelResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+
+
+
+        <wsdl:operation name="deleteChannel">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="deleteChannelRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="deleteChannelResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="pollChannel">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="pollChannelRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="pollChannelResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="addDevice">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="addDeviceRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="addDeviceResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+         
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="listDevices">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="listDevicesRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="listDevicesResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+         
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="removeDevice">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="removeDeviceRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removeDeviceResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+         
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+      
+        <wsdl:operation name="retrieveDataSourceLog">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="retrieveDataSourceLogRequest">
+
+                <wsdlsoap:body namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output name="retrieveDataSourceLogResponse">
+
+                <wsdlsoap:body namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+         
+            <wsdl:fault name="managementException">
+
+                <wsdlsoap:fault name="managementException" namespace="urn:AuthoringWebInterfaces:authoring:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+
+    </wsdl:binding>
+
+
+    <wsdl:service name="AuthoringWebInterfacesService">
+
+        <wsdl:port binding="impl:AuthoringWebInterfacesSoapBinding" name="AuthoringWebInterfaces">
+
+             <wsdlsoap:address location="http://localhost:9001/feedserver/admin/services/AuthoringWebInterfaces"/>
+
+        </wsdl:port>
+
+    </wsdl:service>
+
+
+</wsdl:definitions>

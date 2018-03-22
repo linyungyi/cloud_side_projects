@@ -1,0 +1,6 @@
+1) set MineSniffer.dll 's path
+2) c:\>regsvr32 MimeSniffer.dll
+
+
+unregister:
+3) c:\>regsvr32 MimeSniffer.dll /u

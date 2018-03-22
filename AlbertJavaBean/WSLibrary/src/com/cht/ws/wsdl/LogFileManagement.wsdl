@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" xmlns:intf="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://management.server_common.flashcast.macromedia.com" xmlns:tns2="http://lang.java" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Copyright (c) 2004-2006  Adobe Macromedia Software LLC and its licensors. All rights reserved. Macromedia, the Macromedia logo, Flash and FlashCast are  either registered  trademarks or trademarks of  Adobe Systems Incorporated  in the United States and/or other countries.  All other trademarks are the property of their respective owners.
+
+This software is protected by copyright law and international treaties. Unauthorized use, reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.  -->
+
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+
+  <wsdl:types>
+
+    <schema targetNamespace="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="http://management.server_common.flashcast.macromedia.com"/>
+
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="ArrayOf_soapenc_string">
+
+        <complexContent>
+
+          <restriction base="soapenc:Array">
+
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="soapenc:string[]"/>
+
+          </restriction>
+
+        </complexContent>
+
+      </complexType>
+
+    </schema>
+
+    <schema targetNamespace="http://management.server_common.flashcast.macromedia.com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="ManagementException">
+
+        <sequence>
+
+          <element name="cause" nillable="true" type="xsd:anyType"/>
+
+          <element name="content" nillable="true" type="soapenc:string"/>
+
+          <element name="message" nillable="true" type="soapenc:string"/>
+
+        </sequence>
+
+      </complexType>
+
+    </schema>
+
+  </wsdl:types>
+
+
+    <wsdl:message name="getLogFilesResponse">
+
+
+        <wsdl:part name="getLogFilesReturn" type="impl:ArrayOf_soapenc_string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="ManagementException">
+
+
+        <wsdl:part name="fault" type="tns1:ManagementException"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getLogFilesRequest">
+
+
+        <wsdl:part name="appender" type="soapenc:string"/>
+
+
+        <wsdl:part name="from" type="xsd:dateTime"/>
+
+
+        <wsdl:part name="to" type="xsd:dateTime"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:portType name="LogFileManagement">
+
+
+        <wsdl:operation name="getLogFiles" parameterOrder="appender from to">
+
+
+            <wsdl:input message="impl:getLogFilesRequest" name="getLogFilesRequest"/>
+
+
+            <wsdl:output message="impl:getLogFilesResponse" name="getLogFilesResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+
+
+    </wsdl:portType>
+
+
+    <wsdl:binding name="LogFileManagementSoapBinding" type="impl:LogFileManagement">
+
+        <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="getLogFiles">
+
+            <wsdlsoap:operation soapAction=""/>
+
+            <wsdl:input name="getLogFilesRequest">
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:input>
+
+            <wsdl:output name="getLogFilesResponse">
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:output>
+
+            <wsdl:fault name="ManagementException">
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:LogFileManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+            </wsdl:fault>
+
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+
+    <wsdl:service name="LogFileManagementService">
+
+
+        <wsdl:port binding="impl:LogFileManagementSoapBinding" name="LogFileManagement">
+
+
+            <wsdlsoap:address location="http://localhost:9001/feedserver/admin/services/LogFileManagement"/>
+
+
+        </wsdl:port>
+
+
+    </wsdl:service>
+
+
+</wsdl:definitions>

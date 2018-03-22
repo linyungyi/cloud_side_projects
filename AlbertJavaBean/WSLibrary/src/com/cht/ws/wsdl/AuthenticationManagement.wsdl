@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:AuthenticationManagement:axis:management:server:flashcast:macromedia:com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:AuthenticationManagement:axis:management:server:flashcast:macromedia:com" xmlns:intf="urn:AuthenticationManagement:axis:management:server:flashcast:macromedia:com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Copyright (c) 2004-2006  Adobe Macromedia Software LLC and its licensors. All rights reserved. Macromedia, the Macromedia logo, Flash and FlashCast are  either registered  trademarks or trademarks of  Adobe Systems Incorporated  in the United States and/or other countries.  All other trademarks are the property of their respective owners.
+
+This software is protected by copyright law and international treaties. Unauthorized use, reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.  -->
+
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+
+
+    <wsdl:message name="logoutResponse">
+
+
+        <wsdl:part name="logoutReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="loginRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="logoutRequest">
+
+
+    </wsdl:message>
+
+
+    <wsdl:message name="loginResponse">
+
+
+        <wsdl:part name="loginReturn" type="soapenc:string"/>
+
+
+    </wsdl:message>
+
+
+    <wsdl:portType name="AuthService">
+
+
+        <wsdl:operation name="login">
+
+
+            <wsdl:input message="impl:loginRequest" name="loginRequest"/>
+
+
+            <wsdl:output message="impl:loginResponse" name="loginResponse"/>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="logout">
+
+
+            <wsdl:input message="impl:logoutRequest" name="logoutRequest"/>
+
+
+            <wsdl:output message="impl:logoutResponse" name="logoutResponse"/>
+
+
+        </wsdl:operation>
+
+
+    </wsdl:portType>
+
+
+    <wsdl:binding name="AuthenticationManagementSoapBinding" type="impl:AuthService">
+
+
+        <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+        <wsdl:operation name="login">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="loginRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server_common.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="loginResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:AuthenticationManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="logout">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="logoutRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server_common.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="logoutResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:AuthenticationManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+        </wsdl:operation>
+
+
+    </wsdl:binding>
+
+
+    <wsdl:service name="AuthServiceService">
+
+
+        <wsdl:port binding="impl:AuthenticationManagementSoapBinding" name="AuthenticationManagement">
+
+
+            <wsdlsoap:address location="http://localhost:9001/feedserver/admin/services/AuthenticationManagement"/>
+
+
+        </wsdl:port>
+
+
+    </wsdl:service>
+
+
+</wsdl:definitions>

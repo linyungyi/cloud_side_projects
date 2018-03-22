@@ -1,0 +1,664 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (2a342059).
+//
+// MimeSniffer.tli
+//
+// Wrapper implementations for Win32 type library .\MimeSniffer.dll
+// compiler-generated file created 07/31/03 at 15:26:40 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IMimeDecoder wrapper method implementations
+//
+
+inline VARIANT_BOOL IMimeDecoder::LoadFromFile ( _bstr_t Path ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_LoadFromFile(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IMimeDecoder::SaveToFile ( _bstr_t Path ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_SaveToFile(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t IMimeDecoder::GetReturnPath ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ReturnPath(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutReturnPath ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ReturnPath(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IMimeDecoder::GetMajorMimeVersion ( ) {
+    long _result;
+    HRESULT _hr = get_MajorMimeVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IMimeDecoder::PutMajorMimeVersion ( long pVal ) {
+    HRESULT _hr = put_MajorMimeVersion(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IMimeDecoder::GetMinorMimeVersion ( ) {
+    long _result;
+    HRESULT _hr = get_MinorMimeVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IMimeDecoder::PutMinorMimeVersion ( long pVal ) {
+    HRESULT _hr = put_MinorMimeVersion(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetReplyTo ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ReplyTo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutReplyTo ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ReplyTo(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetFrom ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_From(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutFrom ( const _variant_t & pVal ) {
+    HRESULT _hr = put_From(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetSender ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Sender(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutSender ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Sender(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetResentReplyTo ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ResentReplyTo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutResentReplyTo ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ResentReplyTo(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetResentFrom ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ResentFrom(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutResentFrom ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ResentFrom(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetResentSender ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ResentSender(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutResentSender ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ResentSender(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetDate ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Date(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutDate ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Date(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetResentDate ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ResentDate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutResentDate ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ResentDate(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetTo ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_To(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutTo ( const _variant_t & pVal ) {
+    HRESULT _hr = put_To(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetCC ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_CC(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutCC ( const _variant_t & pVal ) {
+    HRESULT _hr = put_CC(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetBCC ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_BCC(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutBCC ( const _variant_t & pVal ) {
+    HRESULT _hr = put_BCC(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetSubject ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Subject(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutSubject ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Subject(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetMessageID ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_MessageID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutMessageID ( const _variant_t & pVal ) {
+    HRESULT _hr = put_MessageID(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IMimeDecoder::GetReceivedFieldAsRaw ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_ReceivedFieldAsRaw(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IMimeDecoder::PutReceivedFieldAsRaw ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_ReceivedFieldAsRaw(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetReturnReceiptTo ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ReturnReceiptTo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutReturnReceiptTo ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ReturnReceiptTo(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IMimeDecoder::Load ( IDispatch * StreamObject ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_Load(StreamObject, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IMimeDecoder::Save ( IDispatch * StreamObject ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_Save(StreamObject, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t IMimeDecoder::GetSubjectRaw ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_SubjectRaw(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutSubjectRaw ( const _variant_t & pVal ) {
+    HRESULT _hr = put_SubjectRaw(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeDecoder::GetBody ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Body(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeDecoder::PutBody ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Body(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IMimeDecoder::GetCanUpdateName ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_CanUpdateName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IMimeDecoder::PutUpdateName ( _bstr_t _arg1 ) {
+    HRESULT _hr = put_UpdateName(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IMimeDecoder::GetInterpretEmbeddedMails ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_InterpretEmbeddedMails(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IMimeDecoder::PutInterpretEmbeddedMails ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_InterpretEmbeddedMails(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// dispinterface _IMimeDecoderEvents wrapper method implementations
+//
+
+inline HRESULT _IMimeDecoderEvents::OnError ( _bstr_t strHint, long Line ) {
+    HRESULT _result;
+    _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_ERROR, (void*)&_result, 
+        L"\x0008\x0003", (BSTR)strHint, Line);
+    return _result;
+}
+
+//
+// interface IMailAddress wrapper method implementations
+//
+
+inline _bstr_t IMailAddress::GetAddress ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Address(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMailAddress::PutAddress ( _bstr_t pVal ) {
+    HRESULT _hr = put_Address(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IMailAddress::GetNameRaw ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameRaw(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMailAddress::PutNameRaw ( _bstr_t pVal ) {
+    HRESULT _hr = put_NameRaw(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IMailAddress::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMailAddress::PutName ( _bstr_t pVal ) {
+    HRESULT _hr = put_Name(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IMailAddress::GetRouteAddress ( ) {
+    BSTR _result;
+    HRESULT _hr = get_RouteAddress(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface ICollection wrapper method implementations
+//
+
+inline IUnknownPtr ICollection::Get_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = get__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline _variant_t ICollection::GetItem ( long Index ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long ICollection::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT ICollection::Add ( const _variant_t & Item ) {
+    HRESULT _hr = raw_Add(Item);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICollection::Remove ( long Index ) {
+    HRESULT _hr = raw_Remove(Index);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICollection::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICollection::Modify ( long Index, const _variant_t & Item ) {
+    HRESULT _hr = raw_Modify(Index, Item);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t ICollection::GetItemID ( long Index, VARIANT * pID ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ItemID(Index, pID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t ICollection::GetItemByID ( long ID ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ItemByID(ID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT ICollection::RemoveByID ( long ID ) {
+    HRESULT _hr = raw_RemoveByID(ID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICollection::ModifyByID ( long ID, const _variant_t & Item ) {
+    HRESULT _hr = raw_ModifyByID(ID, Item);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IClientSocket wrapper method implementations
+//
+
+inline VARIANT_BOOL IClientSocket::ConnectSMTP ( _bstr_t strServer, long nPort ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_ConnectSMTP(strServer, nPort, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IClientSocket::DisconnectSMTP ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_DisconnectSMTP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IClientSocket::PrepareSMTP ( IDispatch * pDecoder ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_PrepareSMTP(pDecoder, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IClientSocket::GetResultSMTP ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_GetResultSMTP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface IMimeBody wrapper method implementations
+//
+
+inline _variant_t IMimeBody::GetItem ( long Index ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long IMimeBody::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IDispatchPtr IMimeBody::AddNew ( ) {
+    IDispatch * _result;
+    HRESULT _hr = raw_AddNew(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline HRESULT IMimeBody::Remove ( long Index ) {
+    HRESULT _hr = raw_Remove(Index);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IMimeBody::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t IMimeBody::GetMajorContentType ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_MajorContentType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutMajorContentType ( const _variant_t & pVal ) {
+    HRESULT _hr = put_MajorContentType(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeBody::GetMinorContentType ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_MinorContentType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutMinorContentType ( const _variant_t & pVal ) {
+    HRESULT _hr = put_MinorContentType(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeBody::GetExtField ( _bstr_t strName ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ExtField(strName, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutExtField ( _bstr_t strName, const _variant_t & pVal ) {
+    HRESULT _hr = put_ExtField(strName, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeBody::GetEncoding ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Encoding(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutEncoding ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Encoding(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeBody::GetDescription ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutDescription ( const _variant_t & pVal ) {
+    HRESULT _hr = put_Description(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IMimeBody::GetContentID ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ContentID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void IMimeBody::PutContentID ( const _variant_t & pVal ) {
+    HRESULT _hr = put_ContentID(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IMimeBody::ExportAsFile ( _bstr_t Path ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_ExportAsFile(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IMimeBody::ImportFromFile ( _bstr_t Path, VARIANT_BOOL StreamByReference ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_ImportFromFile(Path, StreamByReference, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IMimeBody::Export ( IUnknown * pStream ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_Export(pStream, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IMimeBody::Import ( IUnknown * pStream, VARIANT_BOOL StreamByReference ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_Import(pStream, StreamByReference, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IMimeBody::GetFileName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FileName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMimeBody::PutFileName ( _bstr_t pVal ) {
+    HRESULT _hr = put_FileName(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IMimeBody::GetValue ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Value(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IMimeBody::PutValue ( _bstr_t pVal ) {
+    HRESULT _hr = put_Value(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline IDispatchPtr IMimeBody::GetEmbeddedMessage ( ) {
+    IDispatch * _result;
+    HRESULT _hr = get_EmbeddedMessage(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}

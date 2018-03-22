@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+
+
+
+
+
+<mapping>
+
+	<class name="com.cht.dto.ws.ListDTO">
+		<map-to xml="list" />
+
+		<field name="Type" type="java.lang.String">
+			<bind-xml name="type" node="attribute" />
+		</field>
+
+		<field name="Subscriptions"
+			type="com.cht.dto.ws.SubscriptionDTO" collection="arraylist">
+			<bind-xml name="subscription" />
+		</field>
+	</class>
+
+	<class name="com.cht.dto.ws.SubscriptionDTO">
+		<map-to xml="subscription" />
+
+		<field name="FeedApp" type="java.lang.String">
+			<bind-xml name="feedapp" node="attribute" />
+		</field>
+		<field name="Name" type="java.lang.String">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="DeviceId" type="java.lang.String">
+			<bind-xml name="deviceId" node="attribute" />
+		</field>
+		
+		<field name="StartTime" type="long">
+			<bind-xml name="startTime" node="attribute" />
+		</field>
+
+		<field name="Trial" type="boolean">
+			<bind-xml name="trial" node="attribute" />
+		</field>
+
+		<field name="Expired" type="boolean">
+			<bind-xml name="expired" node="attribute" />
+		</field>
+
+		<field name="Cancelled" type="boolean">
+			<bind-xml name="cancelled" node="attribute" />
+		</field>
+
+		<field name="Price" type="java.lang.String">
+			<bind-xml name="price" node="attribute" />
+		</field>
+
+		<field name="Currency" type="java.lang.String">
+			<bind-xml name="currency" node="attribute" />
+		</field>
+
+		<field name="StateInfo" type="java.lang.String">
+			<bind-xml name="stateInfo" node="attribute" />
+		</field>
+
+		<field name="Error" type="java.lang.String">
+			<bind-xml name="error" node="attribute" />
+		</field>
+
+		<field name="SubType" type="java.lang.String">
+			<bind-xml name="subType" node="attribute" />
+		</field>
+	</class>
+
+
+</mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.cht.dto.ws.DeviceDTO">
+		<map-to xml="device"/>
+		
+		<field name="Id" type="java.lang.String">
+			<bind-xml name="id" node="attribute"/>
+		</field>
+		<field name="User" type="java.lang.String">
+			<bind-xml name="user" node="attribute"/>
+		</field>
+		<field name="ClientType" type="java.lang.String">
+			<bind-xml name="clientType" node="attribute"/>
+		</field>
+		<field name="DeviceType" type="java.lang.String">
+			<bind-xml name="deviceType" node="attribute"/>
+		</field>
+		<field name="Template" type="java.lang.String">
+			<bind-xml name="template" node="attribute"/>
+		</field>
+		
+		<field name="Creation" type="long">
+			<bind-xml name="creation" node="attribute"/>
+		</field>
+		
+		
+	</class>
+	
+	
+</mapping>

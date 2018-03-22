@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions name="GatewayWSServiceDefinitions" targetNamespace="http://com/cht/ws" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://com/cht/ws" xmlns:s2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:com.cht.dto.ws" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:java.util"/>
+      <xs:complexType name="UserDTO">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Creation" nillable="false" type="xs:long"/>
+          <xs:element minOccurs="1" name="Devices" nillable="true" type="java:Collection" xmlns:java="java:java.util"/>
+          <xs:element minOccurs="1" name="GroupModify" nillable="false" type="xs:long"/>
+          <xs:element minOccurs="1" name="Name" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="UserGroups" nillable="true" type="java:Collection" xmlns:java="java:java.util"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ListDTO">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Acls" nillable="true" type="java:Collection" xmlns:java="java:java.util"/>
+          <xs:element minOccurs="1" name="Feedapps" nillable="true" type="java:Collection" xmlns:java="java:java.util"/>
+          <xs:element minOccurs="1" name="Subscriptions" nillable="true" type="java:Collection" xmlns:java="java:java.util"/>
+          <xs:element minOccurs="1" name="Type" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeviceDTO">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="ClientType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Creation" nillable="false" type="xs:long"/>
+          <xs:element minOccurs="1" name="DeviceType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Template" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="User" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/cht/ws" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:com.cht.dto.ws"/>
+      <xs:element name="deleteUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="source" type="xs:string"/>
+            <xs:element name="devid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeSubscriberFromGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="group" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeSubscriberFromGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClientSubscription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="feedAppId" type="xs:string"/>
+            <xs:element name="activate" type="xs:boolean"/>
+            <xs:element name="trial" type="xs:boolean"/>
+            <xs:element name="error" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClientSubscriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addSubscriberToGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="group" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addSubscriberToGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listClientSubscriptions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listClientSubscriptionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="java:ListDTO" xmlns:java="java:com.cht.dto.ws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeServer">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeServerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addClientSubscription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="feedAppId" type="xs:string"/>
+            <xs:element name="activate" type="xs:boolean"/>
+            <xs:element name="trial" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addClientSubscriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="modifyMSISDN">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="source" type="xs:string"/>
+            <xs:element name="oldValue" type="xs:string"/>
+            <xs:element name="newValue" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="modifyMSISDNResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeClient">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeClientResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="java:DeviceDTO" xmlns:java="java:com.cht.dto.ws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeSubscriber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="describeSubscriberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="java:UserDTO" xmlns:java="java:com.cht.dto.ws"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:java.util" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xs:complexType name="Collection">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"/>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="deleteUser">
+    <s0:part element="s1:deleteUser" name="parameters"/>
+  </s0:message>
+  <s0:message name="deleteUserResponse">
+    <s0:part element="s1:deleteUserResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="removeSubscriberFromGroup">
+    <s0:part element="s1:removeSubscriberFromGroup" name="parameters"/>
+  </s0:message>
+  <s0:message name="removeSubscriberFromGroupResponse">
+    <s0:part element="s1:removeSubscriberFromGroupResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="updateClientSubscription">
+    <s0:part element="s1:updateClientSubscription" name="parameters"/>
+  </s0:message>
+  <s0:message name="updateClientSubscriptionResponse">
+    <s0:part element="s1:updateClientSubscriptionResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="addSubscriberToGroup">
+    <s0:part element="s1:addSubscriberToGroup" name="parameters"/>
+  </s0:message>
+  <s0:message name="addSubscriberToGroupResponse">
+    <s0:part element="s1:addSubscriberToGroupResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="listClientSubscriptions">
+    <s0:part element="s1:listClientSubscriptions" name="parameters"/>
+  </s0:message>
+  <s0:message name="listClientSubscriptionsResponse">
+    <s0:part element="s1:listClientSubscriptionsResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeServer">
+    <s0:part element="s1:describeServer" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeServerResponse">
+    <s0:part element="s1:describeServerResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="addClientSubscription">
+    <s0:part element="s1:addClientSubscription" name="parameters"/>
+  </s0:message>
+  <s0:message name="addClientSubscriptionResponse">
+    <s0:part element="s1:addClientSubscriptionResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="modifyMSISDN">
+    <s0:part element="s1:modifyMSISDN" name="parameters"/>
+  </s0:message>
+  <s0:message name="modifyMSISDNResponse">
+    <s0:part element="s1:modifyMSISDNResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeClient">
+    <s0:part element="s1:describeClient" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeClientResponse">
+    <s0:part element="s1:describeClientResponse" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeSubscriber">
+    <s0:part element="s1:describeSubscriber" name="parameters"/>
+  </s0:message>
+  <s0:message name="describeSubscriberResponse">
+    <s0:part element="s1:describeSubscriberResponse" name="parameters"/>
+  </s0:message>
+  <s0:portType name="GatewayWS">
+    <s0:operation name="deleteUser" parameterOrder="parameters">
+      <s0:input message="s1:deleteUser"/>
+      <s0:output message="s1:deleteUserResponse"/>
+    </s0:operation>
+    <s0:operation name="removeSubscriberFromGroup" parameterOrder="parameters">
+      <s0:input message="s1:removeSubscriberFromGroup"/>
+      <s0:output message="s1:removeSubscriberFromGroupResponse"/>
+    </s0:operation>
+    <s0:operation name="updateClientSubscription" parameterOrder="parameters">
+      <s0:input message="s1:updateClientSubscription"/>
+      <s0:output message="s1:updateClientSubscriptionResponse"/>
+    </s0:operation>
+    <s0:operation name="addSubscriberToGroup" parameterOrder="parameters">
+      <s0:input message="s1:addSubscriberToGroup"/>
+      <s0:output message="s1:addSubscriberToGroupResponse"/>
+    </s0:operation>
+    <s0:operation name="listClientSubscriptions" parameterOrder="parameters">
+      <s0:input message="s1:listClientSubscriptions"/>
+      <s0:output message="s1:listClientSubscriptionsResponse"/>
+    </s0:operation>
+    <s0:operation name="describeServer" parameterOrder="parameters">
+      <s0:input message="s1:describeServer"/>
+      <s0:output message="s1:describeServerResponse"/>
+    </s0:operation>
+    <s0:operation name="addClientSubscription" parameterOrder="parameters">
+      <s0:input message="s1:addClientSubscription"/>
+      <s0:output message="s1:addClientSubscriptionResponse"/>
+    </s0:operation>
+    <s0:operation name="modifyMSISDN" parameterOrder="parameters">
+      <s0:input message="s1:modifyMSISDN"/>
+      <s0:output message="s1:modifyMSISDNResponse"/>
+    </s0:operation>
+    <s0:operation name="describeClient" parameterOrder="parameters">
+      <s0:input message="s1:describeClient"/>
+      <s0:output message="s1:describeClientResponse"/>
+    </s0:operation>
+    <s0:operation name="describeSubscriber" parameterOrder="parameters">
+      <s0:input message="s1:describeSubscriber"/>
+      <s0:output message="s1:describeSubscriberResponse"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="GatewayWSServiceSoapBinding" type="s1:GatewayWS">
+    <s2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="deleteUser">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="removeSubscriberFromGroup">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="updateClientSubscription">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="addSubscriberToGroup">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="listClientSubscriptions">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="describeServer">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="addClientSubscription">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="modifyMSISDN">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="describeClient">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="describeSubscriber">
+      <s2:operation soapAction="" style="document"/>
+      <s0:input>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s2:body parts="parameters" use="literal"/>
+      </s0:output>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="GatewayWSService">
+    <s0:port binding="s1:GatewayWSServiceSoapBinding" name="GatewayWSSoapPort">
+      <s2:address location="http://localhost:7501/GatewayWS/GatewayWS"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

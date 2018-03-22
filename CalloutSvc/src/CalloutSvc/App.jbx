@@ -1,0 +1,10 @@
+[PropertyInfo]
+baseValue,int,false,false, , ,false,<default>
+daemon1,_GW,false,false, , ,false,<default>
+pid,int,false,false, , ,false,<default>
+port,int,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

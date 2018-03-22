@@ -1,0 +1,4889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" xmlns:intf="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://management.server_common.flashcast.macromedia.com" xmlns:tns2="http://lang.java" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- Copyright (c) 2004-2006  Adobe Macromedia Software LLC and its licensors. All rights reserved. Macromedia, the Macromedia logo, Flash and FlashCast are  either registered  trademarks or trademarks of  Adobe Systems Incorporated  in the United States and/or other countries.  All other trademarks are the property of their respective owners.
+
+This software is protected by copyright law and international treaties. Unauthorized use, reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.  -->
+
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+
+
+
+<!-- Inline target namespaces
+		
+	http://management.server_common.flashcast.macromedia.com
+	urn:ClusterManagement:axis:management:server:flashcast:macromedia:com	
+		
+		-->
+
+
+		
+   <wsdl:types>
+
+
+      <schema targetNamespace="http://management.server_common.flashcast.macromedia.com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+
+         <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+
+         <complexType name="ManagementException">
+
+
+            <sequence>
+
+
+
+               <element name="cause" nillable="true" type="xsd:anyType"/>
+
+
+               <element name="content" nillable="true" type="soapenc:string"/>
+
+          
+               <element name="localizedMessage" nillable="true" type="soapenc:string"/>
+
+
+               <element name="message" nillable="true" type="soapenc:string"/>
+
+
+            </sequence>
+
+
+         </complexType>
+
+
+      </schema>
+
+
+  
+      <schema targetNamespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" xmlns="http://www.w3.org/2001/XMLSchema">
+
+
+         <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+
+         <complexType name="ClusterManagement">
+
+
+            <sequence>
+
+
+               <element name="activeAdminCount" nillable="true" type="soapenc:string"/>
+
+
+               <element name="activeUserCount" nillable="true" type="soapenc:string"/>
+
+
+               <element name="adminSessionStats" nillable="true" type="soapenc:string"/>
+
+
+               <element name="cacheEvictionsPerClass" nillable="true" type="soapenc:string"/>
+
+
+               <element name="cacheHitsPerClass" nillable="true" type="soapenc:string"/>
+
+
+               <element name="cacheInfo" nillable="true" type="soapenc:string"/>
+
+
+
+               <element name="cacheMissesPerClass" nillable="true" type="soapenc:string"/>
+
+
+               <element name="clientNetworkStats" nillable="true" type="soapenc:string"/>
+
+
+               <element name="datasourceNetworkStats" nillable="true" type="soapenc:string"/>
+
+
+               <element name="serverCount" type="xsd:int"/>
+
+
+               <element name="systemStats" nillable="true" type="soapenc:string"/>
+
+
+               <element name="userSessionStats" nillable="true" type="soapenc:string"/>
+
+
+            </sequence>
+
+
+         </complexType>
+
+
+      </schema>
+
+
+
+   </wsdl:types>
+
+
+
+     <wsdl:message name="serviceStartRequest">
+
+
+
+          <wsdl:part name="guid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserAllRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="servicesCountRequest">
+
+
+
+          <wsdl:part name="type" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeUserSessionResponse">
+
+
+
+          <wsdl:part name="describeUserSessionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getDebugLevelRequest">
+
+
+
+          <wsdl:part name="loggerName" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceLoadResponse">
+
+
+
+          <wsdl:part name="serviceLoadReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setPropertyRequest">
+
+
+
+          <wsdl:part name="propname" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="propvalue" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getDatasourceNetworkStatsRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getAdminSessionStatsResponse">
+
+
+
+          <wsdl:part name="getAdminSessionStatsReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setPropertyResponse">
+
+
+
+          <wsdl:part name="setPropertyReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheInfoRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getInstanceRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setContextLogLevelResponse">
+
+
+
+          <wsdl:part name="setContextLogLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceReloadAllRequest">
+
+
+
+          <wsdl:part name="types" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStopResponse">
+
+
+
+          <wsdl:part name="serviceStopReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="listContextLogLevelRequest">
+
+
+
+          <wsdl:part name="contextType" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getUserSessionStatsRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getClientNetworkStatsRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="signalDeviceFeedAppResponse">
+
+
+
+          <wsdl:part name="signalDeviceFeedAppReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminRequest">
+
+
+
+          <wsdl:part name="adminid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceReloadResponse">
+
+
+
+          <wsdl:part name="serviceReloadReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getSystemStatsRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeServerRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getDebugLevelResponse">
+
+
+
+          <wsdl:part name="getDebugLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceUnloadAllRequest">
+
+
+
+          <wsdl:part name="types" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStopAllRequest">
+
+
+
+          <wsdl:part name="types" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheEvictionsPerClassRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceLoadAllResponse">
+
+
+
+          <wsdl:part name="serviceLoadAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribeCollectionRequest">
+
+
+
+          <wsdl:part name="id" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="dss" type="xsd:boolean"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribePreferenceRequest">
+
+
+
+          <wsdl:part name="id" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="dss" type="xsd:boolean"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStopAllResponse">
+
+
+
+          <wsdl:part name="serviceStopAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="signalDeviceFeedAppRequest">
+
+
+
+          <wsdl:part name="feedappid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutDeviceRequest">
+
+
+
+          <wsdl:part name="deviceid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceLoadAllRequest">
+
+
+
+          <wsdl:part name="types" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setContextLogLevelRequest">
+
+
+
+          <wsdl:part name="contextType" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="contextName" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="logLevel" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeUserThrottleResponse">
+
+
+
+          <wsdl:part name="describeUserThrottleReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribeResponse">
+
+
+
+          <wsdl:part name="serviceDescribeReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getContextLogLevelResponse">
+
+
+
+          <wsdl:part name="getContextLogLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminResponse">
+
+
+
+          <wsdl:part name="logoutAdminReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceUnloadRequest">
+
+
+
+          <wsdl:part name="guid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheMissesPerClassResponse">
+
+
+
+          <wsdl:part name="getCacheMissesPerClassReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceReloadRequest">
+
+
+
+          <wsdl:part name="guid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setDebugLevelRequest">
+
+
+
+          <wsdl:part name="debugLevel" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="loggerName" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getContextLogLevelRequest">
+
+
+
+          <wsdl:part name="contextType" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="contextName" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribeRequest">
+
+
+
+          <wsdl:part name="id" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="dss" type="xsd:boolean"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="ManagementException">
+
+
+
+          <wsdl:part name="fault" type="tns1:ManagementException"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="signalDeviceResponse">
+
+
+
+          <wsdl:part name="signalDeviceReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getClientNetworkStatsResponse">
+
+
+
+          <wsdl:part name="getClientNetworkStatsReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceLoadRequest">
+
+
+
+          <wsdl:part name="guid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserResponse">
+
+
+
+          <wsdl:part name="logoutUserReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceUnloadResponse">
+
+
+
+          <wsdl:part name="serviceUnloadReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="listContextLogLevelResponse">
+
+
+
+          <wsdl:part name="listContextLogLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeUserThrottleRequest">
+
+
+
+          <wsdl:part name="userid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserRequest">
+
+
+
+          <wsdl:part name="userid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="clearContextLogLevelRequest">
+
+
+
+          <wsdl:part name="contextType" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="contextName" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getActiveUserCountResponse">
+
+
+
+          <wsdl:part name="getActiveUserCountReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeDeviceSessionResponse">
+
+
+
+          <wsdl:part name="describeDeviceSessionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeUserSessionRequest">
+
+
+
+          <wsdl:part name="userid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheMissesPerClassRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceReloadAllResponse">
+
+
+
+          <wsdl:part name="serviceReloadAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getPropertyRequest">
+
+
+
+          <wsdl:part name="propname" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminSessionRequest">
+
+
+
+          <wsdl:part name="sessionid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getSystemStatsResponse">
+
+
+
+          <wsdl:part name="getSystemStatsReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheHitsPerClassResponse">
+
+
+
+          <wsdl:part name="getCacheHitsPerClassReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="servicesListRequest">
+
+
+
+          <wsdl:part name="type" type="soapenc:string"/>
+
+
+
+          <wsdl:part name="detail" type="xsd:boolean"/>
+
+
+
+          <wsdl:part name="dss" type="xsd:boolean"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheHitsPerClassRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheInfoResponse">
+
+
+
+          <wsdl:part name="getCacheInfoReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getActiveAdminCountRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribePreferenceResponse">
+
+
+
+          <wsdl:part name="serviceDescribePreferenceReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="removePropertyResponse">
+
+
+
+          <wsdl:part name="removePropertyReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="removePropertyRequest">
+
+
+
+          <wsdl:part name="propname" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminAllResponse">
+
+
+
+          <wsdl:part name="logoutAdminAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminAllRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStartResponse">
+
+
+
+          <wsdl:part name="serviceStartReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getAdminSessionStatsRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="servicesCountResponse">
+
+
+
+          <wsdl:part name="servicesCountReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserSessionResponse">
+
+
+
+          <wsdl:part name="logoutUserSessionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserSessionRequest">
+
+
+
+          <wsdl:part name="sessionid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="clearContextLogLevelResponse">
+
+
+
+          <wsdl:part name="clearContextLogLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeServerResponse">
+
+
+
+          <wsdl:part name="describeServerReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getInstanceResponse">
+
+
+
+          <wsdl:part name="getInstanceReturn" type="impl:ClusterManagement"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getActiveAdminCountResponse">
+
+
+
+          <wsdl:part name="getActiveAdminCountReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="servicesListResponse">
+
+
+
+          <wsdl:part name="servicesListReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeAdminSessionRequest">
+
+
+
+          <wsdl:part name="adminid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getDatasourceNetworkStatsResponse">
+
+
+
+          <wsdl:part name="getDatasourceNetworkStatsReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutAdminSessionResponse">
+
+
+
+          <wsdl:part name="logoutAdminSessionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="setDebugLevelResponse">
+
+
+
+          <wsdl:part name="setDebugLevelReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getServerCountRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getServerCountResponse">
+
+
+
+          <wsdl:part name="getServerCountReturn" type="xsd:int"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="listPropertiesResponse">
+
+
+
+          <wsdl:part name="listPropertiesReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeAdminSessionResponse">
+
+
+
+          <wsdl:part name="describeAdminSessionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getPropertyResponse">
+
+
+
+          <wsdl:part name="getPropertyReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStopRequest">
+
+
+
+          <wsdl:part name="guid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getUserSessionStatsResponse">
+
+
+
+          <wsdl:part name="getUserSessionStatsReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutUserAllResponse">
+
+
+
+          <wsdl:part name="logoutUserAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceDescribeCollectionResponse">
+
+
+
+          <wsdl:part name="serviceDescribeCollectionReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStartAllResponse">
+
+
+
+          <wsdl:part name="serviceStartAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="listPropertiesRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceUnloadAllResponse">
+
+
+
+          <wsdl:part name="serviceUnloadAllReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="logoutDeviceResponse">
+
+
+
+          <wsdl:part name="logoutDeviceReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="describeDeviceSessionRequest">
+
+
+
+          <wsdl:part name="deviceid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getActiveUserCountRequest">
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="signalDeviceRequest">
+
+
+
+          <wsdl:part name="deviceid" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="getCacheEvictionsPerClassResponse">
+
+
+
+          <wsdl:part name="getCacheEvictionsPerClassReturn" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:message name="serviceStartAllRequest">
+
+
+
+          <wsdl:part name="types" type="soapenc:string"/>
+
+
+
+     </wsdl:message>
+
+
+
+     <wsdl:portType name="ClusterManagement">
+
+
+
+          <wsdl:operation name="setProperty" parameterOrder="propname propvalue">
+
+
+
+               <wsdl:input message="impl:setPropertyRequest" name="setPropertyRequest"/>
+
+
+
+               <wsdl:output message="impl:setPropertyResponse" name="setPropertyResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getProperty" parameterOrder="propname">
+
+
+
+               <wsdl:input message="impl:getPropertyRequest" name="getPropertyRequest"/>
+
+
+
+               <wsdl:output message="impl:getPropertyResponse" name="getPropertyResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getInstance">
+
+
+
+               <wsdl:input message="impl:getInstanceRequest" name="getInstanceRequest"/>
+
+
+
+               <wsdl:output message="impl:getInstanceResponse" name="getInstanceResponse"/>
+
+
+
+          </wsdl:operation>
+
+
+<!--
+        <wsdl:operation name="removeProperty" parameterOrder="propname">
+
+
+            <wsdl:input message="impl:removePropertyRequest" name="removePropertyRequest"/>
+
+
+            <wsdl:output message="impl:removePropertyResponse" name="removePropertyResponse"/>
+
+
+            <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+        </wsdl:operation>
+-->
+
+
+
+          <wsdl:operation name="getDebugLevel" parameterOrder="loggerName">
+
+
+
+               <wsdl:input message="impl:getDebugLevelRequest" name="getDebugLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:getDebugLevelResponse" name="getDebugLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="setDebugLevel" parameterOrder="debugLevel loggerName">
+
+
+
+               <wsdl:input message="impl:setDebugLevelRequest" name="setDebugLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:setDebugLevelResponse" name="setDebugLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="listProperties">
+
+
+
+               <wsdl:input message="impl:listPropertiesRequest" name="listPropertiesRequest"/>
+
+
+
+               <wsdl:output message="impl:listPropertiesResponse" name="listPropertiesResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="signalDevice" parameterOrder="deviceid">
+
+
+
+               <wsdl:input message="impl:signalDeviceRequest" name="signalDeviceRequest"/>
+
+
+
+               <wsdl:output message="impl:signalDeviceResponse" name="signalDeviceResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="signalDeviceFeedApp" parameterOrder="feedappid">
+
+
+
+               <wsdl:input message="impl:signalDeviceFeedAppRequest" name="signalDeviceFeedAppRequest"/>
+
+
+
+               <wsdl:output message="impl:signalDeviceFeedAppResponse" name="signalDeviceFeedAppResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceLoadAll" parameterOrder="types">
+
+
+
+               <wsdl:input message="impl:serviceLoadAllRequest" name="serviceLoadAllRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceLoadAllResponse" name="serviceLoadAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStartAll" parameterOrder="types">
+
+
+
+               <wsdl:input message="impl:serviceStartAllRequest" name="serviceStartAllRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceStartAllResponse" name="serviceStartAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStopAll" parameterOrder="types">
+
+
+
+               <wsdl:input message="impl:serviceStopAllRequest" name="serviceStopAllRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceStopAllResponse" name="serviceStopAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceUnloadAll" parameterOrder="types">
+
+
+
+               <wsdl:input message="impl:serviceUnloadAllRequest" name="serviceUnloadAllRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceUnloadAllResponse" name="serviceUnloadAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceLoad" parameterOrder="guid">
+
+
+
+               <wsdl:input message="impl:serviceLoadRequest" name="serviceLoadRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceLoadResponse" name="serviceLoadResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceUnload" parameterOrder="guid">
+
+
+
+               <wsdl:input message="impl:serviceUnloadRequest" name="serviceUnloadRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceUnloadResponse" name="serviceUnloadResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStart" parameterOrder="guid">
+
+
+
+               <wsdl:input message="impl:serviceStartRequest" name="serviceStartRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceStartResponse" name="serviceStartResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStop" parameterOrder="guid">
+
+
+
+               <wsdl:input message="impl:serviceStopRequest" name="serviceStopRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceStopResponse" name="serviceStopResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceReloadAll" parameterOrder="types">
+
+
+
+               <wsdl:input message="impl:serviceReloadAllRequest" name="serviceReloadAllRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceReloadAllResponse" name="serviceReloadAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getActiveAdminCount">
+
+
+
+               <wsdl:input message="impl:getActiveAdminCountRequest" name="getActiveAdminCountRequest"/>
+
+
+
+               <wsdl:output message="impl:getActiveAdminCountResponse" name="getActiveAdminCountResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getActiveUserCount">
+
+
+
+               <wsdl:input message="impl:getActiveUserCountRequest" name="getActiveUserCountRequest"/>
+
+
+
+               <wsdl:output message="impl:getActiveUserCountResponse" name="getActiveUserCountResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUser" parameterOrder="userid">
+
+
+
+               <wsdl:input message="impl:logoutUserRequest" name="logoutUserRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutUserResponse" name="logoutUserResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutDevice" parameterOrder="deviceid">
+
+
+
+               <wsdl:input message="impl:logoutDeviceRequest" name="logoutDeviceRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutDeviceResponse" name="logoutDeviceResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUserAll">
+
+
+
+               <wsdl:input message="impl:logoutUserAllRequest" name="logoutUserAllRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutUserAllResponse" name="logoutUserAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getServerCount">
+
+
+
+               <wsdl:input message="impl:getServerCountRequest" name="getServerCountRequest"/>
+
+
+
+               <wsdl:output message="impl:getServerCountResponse" name="getServerCountResponse"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="servicesCount" parameterOrder="type">
+
+
+
+               <wsdl:input message="impl:servicesCountRequest" name="servicesCountRequest"/>
+
+
+
+               <wsdl:output message="impl:servicesCountResponse" name="servicesCountResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribe" parameterOrder="id dss">
+
+
+
+               <wsdl:input message="impl:serviceDescribeRequest" name="serviceDescribeRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceDescribeResponse" name="serviceDescribeResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribeCollection" parameterOrder="id dss">
+
+
+
+               <wsdl:input message="impl:serviceDescribeCollectionRequest" name="serviceDescribeCollectionRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceDescribeCollectionResponse" name="serviceDescribeCollectionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribePreference" parameterOrder="id dss">
+
+
+
+               <wsdl:input message="impl:serviceDescribePreferenceRequest" name="serviceDescribePreferenceRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceDescribePreferenceResponse" name="serviceDescribePreferenceResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeAdminSession" parameterOrder="adminid">
+
+
+
+               <wsdl:input message="impl:describeAdminSessionRequest" name="describeAdminSessionRequest"/>
+
+
+
+               <wsdl:output message="impl:describeAdminSessionResponse" name="describeAdminSessionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="servicesList" parameterOrder="type detail dss">
+
+
+
+               <wsdl:input message="impl:servicesListRequest" name="servicesListRequest"/>
+
+
+
+               <wsdl:output message="impl:servicesListResponse" name="servicesListResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceReload" parameterOrder="guid">
+
+
+
+               <wsdl:input message="impl:serviceReloadRequest" name="serviceReloadRequest"/>
+
+
+
+               <wsdl:output message="impl:serviceReloadResponse" name="serviceReloadResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="setContextLogLevel" parameterOrder="contextType contextName logLevel">
+
+
+
+               <wsdl:input message="impl:setContextLogLevelRequest" name="setContextLogLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:setContextLogLevelResponse" name="setContextLogLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUserSession" parameterOrder="sessionid">
+
+
+
+               <wsdl:input message="impl:logoutUserSessionRequest" name="logoutUserSessionRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutUserSessionResponse" name="logoutUserSessionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getClientNetworkStats">
+
+
+
+               <wsdl:input message="impl:getClientNetworkStatsRequest" name="getClientNetworkStatsRequest"/>
+
+
+
+               <wsdl:output message="impl:getClientNetworkStatsResponse" name="getClientNetworkStatsResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getDatasourceNetworkStats">
+
+
+
+               <wsdl:input message="impl:getDatasourceNetworkStatsRequest" name="getDatasourceNetworkStatsRequest"/>
+
+
+
+               <wsdl:output message="impl:getDatasourceNetworkStatsResponse" name="getDatasourceNetworkStatsResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheHitsPerClass">
+
+
+
+               <wsdl:input message="impl:getCacheHitsPerClassRequest" name="getCacheHitsPerClassRequest"/>
+
+
+
+               <wsdl:output message="impl:getCacheHitsPerClassResponse" name="getCacheHitsPerClassResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheMissesPerClass">
+
+
+
+               <wsdl:input message="impl:getCacheMissesPerClassRequest" name="getCacheMissesPerClassRequest"/>
+
+
+
+               <wsdl:output message="impl:getCacheMissesPerClassResponse" name="getCacheMissesPerClassResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheEvictionsPerClass">
+
+
+
+               <wsdl:input message="impl:getCacheEvictionsPerClassRequest" name="getCacheEvictionsPerClassRequest"/>
+
+
+
+               <wsdl:output message="impl:getCacheEvictionsPerClassResponse" name="getCacheEvictionsPerClassResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheInfo">
+
+
+
+               <wsdl:input message="impl:getCacheInfoRequest" name="getCacheInfoRequest"/>
+
+
+
+               <wsdl:output message="impl:getCacheInfoResponse" name="getCacheInfoResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeDeviceSession" parameterOrder="deviceid">
+
+
+
+               <wsdl:input message="impl:describeDeviceSessionRequest" name="describeDeviceSessionRequest"/>
+
+
+
+               <wsdl:output message="impl:describeDeviceSessionResponse" name="describeDeviceSessionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeUserSession" parameterOrder="userid">
+
+
+
+               <wsdl:input message="impl:describeUserSessionRequest" name="describeUserSessionRequest"/>
+
+
+
+               <wsdl:output message="impl:describeUserSessionResponse" name="describeUserSessionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeUserThrottle" parameterOrder="userid">
+
+
+
+               <wsdl:input message="impl:describeUserThrottleRequest" name="describeUserThrottleRequest"/>
+
+
+
+               <wsdl:output message="impl:describeUserThrottleResponse" name="describeUserThrottleResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeServer">
+
+
+
+               <wsdl:input message="impl:describeServerRequest" name="describeServerRequest"/>
+
+
+
+               <wsdl:output message="impl:describeServerResponse" name="describeServerResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getSystemStats">
+
+
+
+               <wsdl:input message="impl:getSystemStatsRequest" name="getSystemStatsRequest"/>
+
+
+
+               <wsdl:output message="impl:getSystemStatsResponse" name="getSystemStatsResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getAdminSessionStats">
+
+
+
+               <wsdl:input message="impl:getAdminSessionStatsRequest" name="getAdminSessionStatsRequest"/>
+
+
+
+               <wsdl:output message="impl:getAdminSessionStatsResponse" name="getAdminSessionStatsResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getUserSessionStats">
+
+
+
+               <wsdl:input message="impl:getUserSessionStatsRequest" name="getUserSessionStatsRequest"/>
+
+
+
+               <wsdl:output message="impl:getUserSessionStatsResponse" name="getUserSessionStatsResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getContextLogLevel" parameterOrder="contextType contextName">
+
+
+
+               <wsdl:input message="impl:getContextLogLevelRequest" name="getContextLogLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:getContextLogLevelResponse" name="getContextLogLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="listContextLogLevel" parameterOrder="contextType">
+
+
+
+               <wsdl:input message="impl:listContextLogLevelRequest" name="listContextLogLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:listContextLogLevelResponse" name="listContextLogLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="clearContextLogLevel" parameterOrder="contextType contextName">
+
+
+
+               <wsdl:input message="impl:clearContextLogLevelRequest" name="clearContextLogLevelRequest"/>
+
+
+
+               <wsdl:output message="impl:clearContextLogLevelResponse" name="clearContextLogLevelResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdmin" parameterOrder="adminid">
+
+
+
+               <wsdl:input message="impl:logoutAdminRequest" name="logoutAdminRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutAdminResponse" name="logoutAdminResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdminSession" parameterOrder="sessionid">
+
+
+
+               <wsdl:input message="impl:logoutAdminSessionRequest" name="logoutAdminSessionRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutAdminSessionResponse" name="logoutAdminSessionResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdminAll">
+
+
+
+               <wsdl:input message="impl:logoutAdminAllRequest" name="logoutAdminAllRequest"/>
+
+
+
+               <wsdl:output message="impl:logoutAdminAllResponse" name="logoutAdminAllResponse"/>
+
+
+
+               <wsdl:fault message="impl:ManagementException" name="ManagementException"/>
+
+
+
+          </wsdl:operation>
+
+
+
+     </wsdl:portType>
+
+
+
+     <wsdl:binding name="ClusterManagementSoapBinding" type="impl:ClusterManagement">
+
+
+
+          <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+
+          <wsdl:operation name="setProperty">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="setPropertyRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="setPropertyResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getProperty">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getPropertyRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getPropertyResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getInstance">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getInstanceRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getInstanceResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+          </wsdl:operation>
+
+
+<!--Omit due to issue with axis core having same method, different signature
+        <wsdl:operation name="removeProperty">
+
+
+            <wsdlsoap:operation soapAction=""/>
+
+
+            <wsdl:input name="removePropertyRequest">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+            </wsdl:input>
+
+
+            <wsdl:output name="removePropertyResponse">
+
+
+                <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:output>
+
+
+            <wsdl:fault name="ManagementException">
+
+
+                <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+            </wsdl:fault>
+
+
+        </wsdl:operation>
+-->
+
+
+          <wsdl:operation name="getDebugLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getDebugLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getDebugLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="setDebugLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="setDebugLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="setDebugLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="listProperties">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="listPropertiesRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="listPropertiesResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="signalDevice">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="signalDeviceRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="signalDeviceResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="signalDeviceFeedApp">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="signalDeviceFeedAppRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="signalDeviceFeedAppResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceLoadAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceLoadAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceLoadAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStartAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceStartAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceStartAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStopAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceStopAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceStopAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceUnloadAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceUnloadAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceUnloadAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceLoad">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceLoadRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceLoadResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceUnload">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceUnloadRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceUnloadResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStart">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceStartRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceStartResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceStop">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceStopRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceStopResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceReloadAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceReloadAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceReloadAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getActiveAdminCount">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getActiveAdminCountRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getActiveAdminCountResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getActiveUserCount">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getActiveUserCountRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getActiveUserCountResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUser">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutUserRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutUserResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutDevice">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutDeviceRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutDeviceResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUserAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutUserAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutUserAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getServerCount">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getServerCountRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getServerCountResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="servicesCount">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="servicesCountRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="servicesCountResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribe">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceDescribeRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceDescribeResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribeCollection">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceDescribeCollectionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceDescribeCollectionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceDescribePreference">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceDescribePreferenceRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceDescribePreferenceResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeAdminSession">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="describeAdminSessionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="describeAdminSessionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="servicesList">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="servicesListRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="servicesListResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="serviceReload">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="serviceReloadRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="serviceReloadResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="setContextLogLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="setContextLogLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="setContextLogLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutUserSession">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutUserSessionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutUserSessionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getClientNetworkStats">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getClientNetworkStatsRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getClientNetworkStatsResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getDatasourceNetworkStats">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getDatasourceNetworkStatsRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getDatasourceNetworkStatsResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheHitsPerClass">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getCacheHitsPerClassRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getCacheHitsPerClassResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheMissesPerClass">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getCacheMissesPerClassRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getCacheMissesPerClassResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheEvictionsPerClass">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getCacheEvictionsPerClassRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getCacheEvictionsPerClassResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getCacheInfo">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getCacheInfoRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getCacheInfoResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeDeviceSession">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="describeDeviceSessionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="describeDeviceSessionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeUserSession">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="describeUserSessionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="describeUserSessionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeUserThrottle">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="describeUserThrottleRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="describeUserThrottleResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="describeServer">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="describeServerRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="describeServerResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getSystemStats">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getSystemStatsRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getSystemStatsResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getAdminSessionStats">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getAdminSessionStatsRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getAdminSessionStatsResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getUserSessionStats">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getUserSessionStatsRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getUserSessionStatsResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="getContextLogLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="getContextLogLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="getContextLogLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="listContextLogLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="listContextLogLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="listContextLogLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="clearContextLogLevel">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="clearContextLogLevelRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="clearContextLogLevelResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdmin">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutAdminRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutAdminResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdminSession">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutAdminSessionRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutAdminSessionResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+          <wsdl:operation name="logoutAdminAll">
+
+
+
+               <wsdlsoap:operation soapAction=""/>
+
+
+
+               <wsdl:input name="logoutAdminAllRequest">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://axis.management.server.flashcast.macromedia.com" use="encoded"/>
+
+
+
+               </wsdl:input>
+
+
+
+               <wsdl:output name="logoutAdminAllResponse">
+
+
+
+                    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:output>
+
+
+
+               <wsdl:fault name="ManagementException">
+
+
+
+                    <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ManagementException" namespace="urn:ClusterManagement:axis:management:server:flashcast:macromedia:com" use="encoded"/>
+
+
+
+               </wsdl:fault>
+
+
+
+          </wsdl:operation>
+
+
+
+     </wsdl:binding>
+
+
+
+     <wsdl:service name="ClusterManagementService">
+
+
+
+          <wsdl:port binding="impl:ClusterManagementSoapBinding" name="ClusterManagement">
+
+
+
+               <wsdlsoap:address location="http://localhost:9001/feedserver/admin/services/ClusterManagement"/>
+
+
+
+          </wsdl:port>
+
+
+
+     </wsdl:service>
+
+
+
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Apply>
+      <ID>123456</ID>
+      <TYPE>CHANNEL</TYPE>
+      <ACTION>A</ACTION>
+      <UI>mobile</UI>
+      <STATUS>Success</STATUS>
+      <ErrCode>00</ErrCode>
+</Apply>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChannelList id="011512">
+    <item id="1">
+        <prop name="albumid">465613</prop>
+  		<prop name="album">雨愛搶先聽</prop>
+  		<prop name="author">楊丞琳</prop>
+  		<prop name="provider">滾石移動</prop>
+   		<prop name="desc">好聽的專輯</prop>
+    	<prop name="smallpic" url="http://172.30.14.32/audiobank/RBT/pic/46/56/465613.gif" mimeType="image/gif" />
+    	<prop name="bigpic" url="http://172.30.14.32/audiobank/RBT/pic/46/56/465613.gif" mimeType="image/gif" />
+    </item>
+    <item id="2">
+        <prop name="albumid">510599</prop>
+  		<prop name="album">精武門</prop>
+  		<prop name="author">羅志祥</prop>
+  		<prop name="provider">隨身遊戲</prop>
+    	<prop name="desc">好聽的專輯</prop>
+    	<prop name="smallpic" url="http://172.30.14.32/audiobank/RBT/pic/51/05/510599.gif" mimeType="image/gif" />
+    	<prop name="bigpic" url="http://172.30.14.32/audiobank/RBT/pic/51/05/510599.gif" mimeType="image/gif" />
+    </item>
+</ChannelList>

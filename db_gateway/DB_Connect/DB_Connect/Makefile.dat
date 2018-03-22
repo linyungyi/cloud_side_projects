@@ -1,0 +1,38 @@
+debug: all
+
+
+###########################################################################
+# User defines
+###########################################################################
+
+TARGET_FILE = test
+
+OBJECT_FILES = cpe.o dbgw.o main.o 
+
+DEFINES = -DSOLARIS -DDEBUG
+CFLAGS = -c $(DEFINES) -m64
+
+###########################################################################
+# Targets
+###########################################################################
+
+all: $(TARGET_FILE)
+
+.SUFFIXES: .cpp .c 
+
+COMPILER= gcc
+
+clean:
+	rm -f *.o
+	rm -f $(TARGET_FILE)
+
+
+.c.o:
+	@echo 'compiling $<'
+	@$(COMPILER) $(CFLAGS) $< 
+
+
+$(TARGET_FILE): $(OBJECT_FILES) 
+	@echo 'linking... $@'
+	@$(COMPILER) -m64 -o $@ $(OBJECT_FILES)  -lpthread -lsocket -lnsl -lm
+
